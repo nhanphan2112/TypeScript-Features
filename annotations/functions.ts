@@ -24,3 +24,16 @@ const throwError = (message: string): void => {
 		throw new Error(message);
 	}
 };
+
+//Adding object type to a function
+const todayWeather = {
+	date: new Date(),
+	weather: "sunny",
+};
+// Destructoring in TypeScript
+const logWeather = ({ date, weather }: { date: Date; weather: string }): void => {
+	console.log(date);
+	console.log(weather);
+};
+
+logWeather(todayWeather);
