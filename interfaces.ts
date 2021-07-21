@@ -1,17 +1,21 @@
 interface Vehicle {
 	name: string;
-	year: number;
+	year: Date;
 	broken: boolean;
+  summary(): string;
 }
 
 const oldCivic = {
 	name: "civic",
-	year: 2000,
+	year: new Date(),
 	broken: true,
+  summary(): string{
+    return `Name: ${this.name}`
+  }
 };
 
 // Long Type Annotations
-const printVehicle = (vehicle: { name: string; year: number; broken: boolean }): void => {
+const printVehicle = (vehicle: { name: string; year: Date; broken: boolean }): void => {
 	console.log(`Name: ${vehicle.name}`);
 	console.log(`Year: ${vehicle.year}`);
 	console.log(`Broken: ${vehicle.broken}`);
@@ -20,9 +24,7 @@ printVehicle(oldCivic);
 
 // Interface usage replacing long type annoation
 const printVehicleWithInterface = (vehicle: Vehicle): void => {
-	console.log(`Name: ${vehicle.name}`);
-	console.log(`Year: ${vehicle.year}`);
-	console.log(`Broken: ${vehicle.broken}`);
+	console.log(vehicle.summary());
 };
 
 printVehicleWithInterface(oldCivic);
