@@ -1,6 +1,6 @@
 interface Reportable {
 	summary(): string;
-} 
+}
 
 const oldCivic = {
 	name: "civic",
@@ -8,6 +8,15 @@ const oldCivic = {
 	broken: true,
 	summary(): string {
 		return `Name: ${this.name}`;
+	},
+};
+
+const drink = {
+	color: "brown",
+	carbonated: true,
+	sugar: 40,
+	summary(): string {
+		return `My drink has ${this.sugar} grams of sugar`;
 	},
 };
 
@@ -20,8 +29,9 @@ const printVehicle = (vehicle: { name: string; year: Date; broken: boolean }): v
 printVehicle(oldCivic);
 
 // Interface usage replacing long type annoation
-const printSummaryInterface = (item: Reportable): void => {
+const printSummaryWithInterface = (item: Reportable): void => {
 	console.log(item.summary());
 };
 
-printSummaryInterface(oldCivic);
+printSummaryWithInterface(oldCivic);
+printSummaryWithInterface(drink);
